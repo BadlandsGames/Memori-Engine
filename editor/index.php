@@ -5,7 +5,9 @@
             <?php
                 $current_project = "Start Page";
                 $current_project_fs = array();
-                function open_project($filename) {
+                $in_project = false;
+                $filename = "";
+                if($in_project) {
                     if(end(str_split($filename)) == "json") {
                         $newfile_open = fopen($filename, "r") or die("Unable to open file.");
                         $project_info = json_decode(fread($newfile_open, filesize($newfile_open)), true);
